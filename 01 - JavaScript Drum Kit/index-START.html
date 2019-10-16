@@ -57,7 +57,22 @@
   <audio data-key="76" src="sounds/tink.wav"></audio>
 
 <script>
-// the event we are listening here is 'keydown' and when that is happen we will call a functcon (e). when you press the keyboard - console.log will log the (e) console.log(e)
+
+window.addEventListener('keydown', function(e){
+  const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`)
+  if (!audio) return
+  console.log(audio)
+  audio.currentTime = 0
+  audio.play()
+})
+</script>
+
+
+</body>
+</html>
+
+
+<!-- // the event we are listening here is 'keydown' and when that is happen we will call a functcon (e). when you press the keyboard - console.log will log the (e) console.log(e)
 //inside of the window.addEventListener we need to ask or there is a audio element on the page that has a data-key
 
   function playSound(e) {
@@ -82,11 +97,4 @@
   const keys= document.querySelectorAll('.key')
   keys.forEach(key => key.addEventListener('transitionend', removeTransition))
   window.addEventListener('keydown', playSound)
-// (this) is equal to the key.addEventListener
-
-
-</script>
-
-
-</body>
-</html>
+// (this) is equal to the key.addEventListener -->
